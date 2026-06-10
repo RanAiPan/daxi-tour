@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ranaipan.github.io/daxi-tour/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ranaipan.github.io/daxi-tour/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ranaipan.github.io/daxi-tour/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ranaipan.github.io/daxi-tour/"/>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ranaipan.github.io/daxi-tour/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ranaipan.github.io/daxi-tour/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ranaipan.github.io/daxi-tour/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ranaipan.github.io/daxi-tour/"/>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

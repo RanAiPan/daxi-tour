@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ranaipan.github.io/daxi-tour/sitemap.xml
