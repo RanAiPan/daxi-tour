@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大溪生活溫度 DAXI WARMTH GUIDE</title>
+<meta name="description" content="大溪生活溫度 DAXI WARMTH GUIDE — 用腳閱讀一座城，用心感受一段生活。大溪在地文化走讀（中文／日本語）。">
+<link rel="icon" href="https://ranaipan.github.io/daxi-tour/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="https://ranaipan.github.io/daxi-tour/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Iansui";src:url("https://ranaipan.github.io/daxi-tour/fonts/iansui.woff2") format("woff2");font-display:swap}
+@font-face{font-family:"Chenyuluoyan";src:url("https://ranaipan.github.io/daxi-tour/fonts/chenyu.woff2") format("woff2");font-display:swap}
+
+:root{
+  --paper:#f4f1e9; --cream:#faf8f2; --paper-2:#ece6d9;
+  --ink:#373b33; --ink-soft:#5f655a; --faint:#8d9384;
+  --sage:#8a9785; --sage-deep:#6c7a65; --clay:#b08a6e; --clay-deep:#9a7255;
+  --line:#ddd7c8; --line-2:#c9c3b3;
+  --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --wrap:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---- bilingual visibility ---- */
+[data-lang="zh"] .ja{display:none !important}
+[data-lang="ja"] .zh{display:none !important}
+
+/* ---- progressive reveal (no JS -> visible) ---- */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--clay-deep)}
+.sec-title{font-family:var(--serif);font-weight:700;line-height:1.25;color:var(--ink);font-size:clamp(26px,4vw,40px);letter-spacing:.02em}
+section{position:relative}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:16px clamp(20px,5vw,48px);transition:background .3s,padding .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(244,241,233,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  padding-top:11px;padding-bottom:11px;box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand .seal{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);
+  font-size:21px;color:#fff;background:linear-gradient(135deg,var(--sage) 0%,var(--clay) 100%);box-shadow:0 6px 16px -6px rgba(86,98,79,.5)}
+.brand b{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:.06em;line-height:1.15;display:block;color:var(--ink)}
+.brand small{display:block;font-size:8.5px;letter-spacing:.3em;color:var(--faint);text-transform:uppercase;margin-top:2px}
+.navlinks{display:flex;align-items:center;gap:26px}
+.navlinks a{font-size:14.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.04em;position:relative;padding:4px 0;white-space:nowrap;transition:color .25s}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1.5px;background:var(--clay);transition:width .3s}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a:hover::after{width:100%}
+.navcta{background:var(--ink);color:#fff !important;padding:9px 18px;border-radius:3px;font-size:13.5px;letter-spacing:.05em}
+.navcta::after{display:none !important}
+.navcta:hover{background:var(--sage-deep)}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.langswitch{display:flex;gap:3px;padding:4px;border-radius:999px;background:rgba(243,241,234,.96);
+  border:1px solid var(--line-2);box-shadow:0 5px 14px -7px rgba(50,62,46,.45)}
+.langswitch button{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;background:transparent;
+  font-family:var(--sans);color:var(--sage-deep);font-size:13px;font-weight:500;letter-spacing:.04em;
+  padding:6px 14px;border-radius:999px;line-height:1;transition:.22s;white-space:nowrap}
+.langswitch button:hover{color:var(--ink)}
+.langswitch button.active{background:var(--sage);color:#fff;box-shadow:0 2px 7px -2px rgba(86,98,79,.6)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;
+  background:rgba(243,241,234,.96);border:1px solid var(--line-2);border-radius:8px;cursor:pointer;padding:0 9px}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.3s}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:120px clamp(20px,7vw,90px) 90px;position:relative;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url("https://ranaipan.github.io/daxi-tour/img/hero-watercolor.jpg") center/cover no-repeat;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,rgba(46,52,44,.62) 0%,rgba(60,66,56,.32) 45%,rgba(70,76,64,.12) 100%)}
+.hero-eyebrow{font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.86);margin-bottom:22px;font-weight:500}
+.hero-title{font-family:var(--serif);font-weight:700;font-size:clamp(44px,9vw,104px);line-height:1.04;letter-spacing:.03em;
+  text-shadow:0 4px 30px rgba(0,0,0,.3);margin-bottom:24px}
+.hero-title.zh{font-family:"Chenyuluoyan",var(--serif)}
+.hero-title.ja{letter-spacing:.06em;font-size:clamp(34px,7vw,80px)}
+.hero-sub{font-size:clamp(16px,2.3vw,22px);font-weight:300;max-width:30ch;color:rgba(255,255,255,.95);
+  letter-spacing:.04em;line-height:1.85;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:9px;color:rgba(255,255,255,.85);font-size:10px;letter-spacing:.3em}
+.scroll-hint .arrow{width:22px;height:22px;border-right:2px solid #fff;border-bottom:2px solid #fff;
+  transform:rotate(45deg);animation:bob 1.7s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4}50%{transform:rotate(45deg) translate(5px,5px);opacity:1}}
+
+/* ===== generic section spacing ===== */
+.block{padding:clamp(64px,9vw,118px) 0}
+.block.tint{background:var(--cream)}
+.sec-head{margin-bottom:clamp(34px,5vw,56px)}
+.sec-head .eyebrow{display:block;margin-bottom:14px}
+
+/* ===== VIDEO ===== */
+.video-cap .sec-title{margin-bottom:0}
+.video-wrap{position:relative;width:100%;border-radius:12px;overflow:hidden;background:#1c1f1a;line-height:0;
+  box-shadow:0 30px 64px -34px rgba(50,56,44,.55);border:1px solid var(--line-2)}
+.brand-video{width:100%;aspect-ratio:16/9;display:block;border-radius:12px;background:#1c1f1a;object-fit:cover}
+.video-note{margin-top:14px;font-size:13px;letter-spacing:.04em;color:var(--faint)}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(30px,6vw,76px);align-items:center}
+.about-lead{font-family:var(--serif);font-size:clamp(20px,2.8vw,29px);line-height:1.7;color:var(--ink);font-weight:500}
+.about-art{aspect-ratio:4/5;border-radius:6px;overflow:hidden;box-shadow:0 30px 64px -34px rgba(50,56,44,.5)}
+.about-art img{width:100%;height:100%;object-fit:cover}
+
+/* ===== THEME CARDS ===== */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,30px)}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:7px;overflow:hidden;
+  transition:transform .4s,box-shadow .4s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-7px);box-shadow:0 30px 50px -28px rgba(50,56,44,.42)}
+.card-img{aspect-ratio:3/2;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .card-img img{transform:scale(1.06)}
+.card-body{padding:22px 24px 26px}
+.card-num{font-family:var(--serif);font-size:13px;color:var(--clay);letter-spacing:.1em;font-weight:600}
+.card h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);margin:8px 0 5px;letter-spacing:.03em}
+.card .en{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:500}
+
+/* ===== ROUTES ===== */
+.routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,28px)}
+.route{position:relative;border-radius:7px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end;
+  color:#fff;box-shadow:0 24px 50px -30px rgba(50,56,44,.5)}
+.route img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s}
+.route::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(40,44,36,.82) 0%,rgba(40,44,36,.18) 65%,transparent 100%)}
+.route:hover img{transform:scale(1.07)}
+.route-body{padding:26px}
+.route-body .tag{font-size:11px;letter-spacing:.28em;font-weight:600;color:rgba(255,255,255,.85)}
+.route-body h3{font-family:var(--serif);font-weight:600;font-size:20px;margin-top:8px;line-height:1.4;letter-spacing:.03em}
+
+/* ===== ARTISAN (banner) ===== */
+.artisan{position:relative;color:#fff;text-align:center;padding:clamp(80px,12vw,150px) 0;overflow:hidden}
+.artisan::before{content:"";position:absolute;inset:0;z-index:-2;background:url("https://ranaipan.github.io/daxi-tour/img/note-1.jpg") center/cover no-repeat;filter:saturate(.85)}
+.artisan::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(48,52,42,.66),rgba(48,52,42,.66))}
+.artisan .eyebrow{color:rgba(255,255,255,.85)}
+.artisan-lead{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.6vw,38px);line-height:1.55;max-width:20ch;margin:16px auto 0;letter-spacing:.04em;text-shadow:0 3px 18px rgba(0,0,0,.3)}
+
+/* ===== GUIDE ===== */
+.guide-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,72px);align-items:center}
+.guide-portrait{position:relative}
+.guide-portrait img{width:100%;border-radius:6px;box-shadow:0 34px 70px -30px rgba(40,52,40,.5);background:var(--cream)}
+.guide-name{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.4vw,34px);color:var(--ink);margin:10px 0 6px;letter-spacing:.03em}
+.guide-role{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--clay-deep);font-weight:500;margin-bottom:22px}
+.guide-quote{font-family:var(--serif);font-size:clamp(19px,2.6vw,26px);line-height:1.7;color:var(--ink-soft);font-weight:500;
+  padding-left:22px;border-left:3px solid var(--sage)}
+
+/* ===== EXCHANGE ===== */
+.exchange{text-align:center}
+.exchange .exchange-lead{font-family:var(--serif);font-size:clamp(22px,3.2vw,34px);line-height:1.6;color:var(--ink);
+  font-weight:600;max-width:24ch;margin:0 auto;letter-spacing:.04em}
+.exchange .globe{font-size:34px;color:var(--sage);margin-bottom:8px;letter-spacing:.3em}
+
+/* ===== SOURCES ===== */
+.sources-box{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:clamp(28px,4vw,46px)}
+.sources-box .lead{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;margin-bottom:18px}
+.source-list{display:flex;flex-wrap:wrap;gap:10px 12px}
+.source-list span{background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:13.5px;color:var(--ink-soft);letter-spacing:.02em}
+
+/* ===== CTA ===== */
+.cta{text-align:center;background:linear-gradient(160deg,var(--sage-deep),var(--sage));color:#fff}
+.cta .sec-title{color:#fff}
+.cta-sub{color:rgba(255,255,255,.9);margin:14px 0 30px;font-size:16px;letter-spacing:.04em}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 34px;border-radius:4px;font-size:15px;font-weight:500;letter-spacing:.06em;transition:.25s;cursor:pointer;border:1.5px solid transparent}
+.btn-solid{background:#fff;color:var(--sage-deep)}
+.btn-solid:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+.foot{background:#33372f;color:#cfd2c6;padding:clamp(48px,7vw,72px) 0 32px}
+.foot .wrap{display:flex;flex-direction:column;gap:8px}
+.foot .foot-lead{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:6px}
+.foot .place{font-family:var(--serif);font-size:18px;color:#eceee6;letter-spacing:.04em}
+.foot .copy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;letter-spacing:.16em;color:#a7ab9d}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:980px){
+  .about-grid{grid-template-columns:1fr;gap:34px}
+  .about-art{order:-1;aspect-ratio:16/10;max-height:360px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .guide-grid{grid-template-columns:1fr;gap:30px}
+  .guide-portrait{max-width:340px;margin:0 auto}
+}
+@media(max-width:860px){
+  [id]{scroll-margin-top:72px}
+  .nav-toggle{display:flex}
+  .navlinks{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--cream);border-top:1px solid var(--line);box-shadow:0 16px 28px -14px rgba(0,0,0,.25);
+    padding:6px 0;display:none}
+  .nav.open{background:rgba(244,241,233,.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .nav.open .navlinks{display:flex}
+  .navlinks a{padding:14px clamp(20px,5vw,48px)}
+  .navlinks a::after{display:none}
+  .navcta{margin:8px clamp(20px,5vw,48px) 10px;text-align:center;border-radius:4px}
+}
+@media(max-width:620px){
+  .cards{grid-template-columns:1fr;gap:18px}
+  .routes-grid{grid-template-columns:1fr}
+  .brand b{font-size:16px}
+  .brand small{font-size:7.5px;letter-spacing:.26em}
+  .brand .seal{width:36px;height:36px;font-size:19px}
+  .langswitch button{padding:6px 11px;font-size:12px}
+  .hero{align-items:center;text-align:center;padding-left:24px;padding-right:24px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .cta-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;max-width:300px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="大溪生活溫度">
+    <span class="seal">溪</span>
+    <span class="brand-tx"><b>大溪生活溫度</b><small>DAXI · WARMTH GUIDE</small></span>
+  </a>
+  <nav class="navlinks" aria-label="主選單">
+    <a href="#artisan"><span class="zh">在地職人</span><span class="ja">地元の職人</span></a>
+    <a href="#routes"><span class="zh">散步路線</span><span class="ja">散策ルート</span></a>
+    <a href="#guide"><span class="zh">走讀人</span><span class="ja">案内人</span></a>
+    <a href="#fest"><span class="zh">節慶民俗</span><span class="ja">祭礼と民俗</span></a>
+    <a href="#train"><span class="zh">大溪文化筆記</span><span class="ja">文化ノート</span></a>
+    <a href="#cta" class="navcta"><span class="zh">開始規劃</span><span class="ja">プランニング</span></a>
+  </nav>
+  <div class="nav-right">
+    <div class="langswitch" role="group" aria-label="Language / 言語">
+      <button type="button" data-lang="zh">中文</button>
+      <button type="button" data-lang="ja">日本語</button>
+    </div>
+    <button class="nav-toggle" aria-label="選單 / メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 【1】HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">DAXI · WARMTH GUIDE</p>
+    <h1 class="hero-title zh">大溪生活溫度</h1>
+    <h1 class="hero-title ja">DAXI WARMTH GUIDE</h1>
+    <p class="hero-sub zh">用腳閱讀一座城，用心感受一段生活。</p>
+    <p class="hero-sub ja">足でまちを読み、暮らしの温もりに出会う旅。</p>
+    <a class="scroll-hint" href="#video" aria-label="向下捲動">
+      <span>SCROLL</span><span class="arrow"></span>
+    </a>
+  </section>
+
+  <!-- 【2】品牌影片 -->
+  <section class="block tint" id="video">
+    <div class="wrap">
+      <div class="sec-head video-cap reveal">
+        <span class="eyebrow">Brand Film · 品牌影片</span>
+        <h2 class="sec-title zh">大溪的生活溫度：一場感官文化走讀</h2>
+        <h2 class="sec-title ja">大溪の温もり 感覚でめぐる文化散策</h2>
+      </div>
+      <div class="video-wrap reveal">
+        <video class="brand-video" controls autoplay muted playsinline preload="metadata"
+               poster="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg">
+          <source src="https://ranaipan.github.io/daxi-tour/video/daxi-life-journal.mp4" type="video/mp4">
+          <span class="zh">您的瀏覽器不支援影片播放，請更新瀏覽器。</span>
+          <span class="ja">お使いのブラウザは動画再生に対応していません。</span>
+        </video>
+      </div>
+      <p class="video-note zh">＊影片自動靜音播放，點選播放列即可開啟聲音。</p>
+      <p class="video-note ja">＊動画はミュートで自動再生されます。コントロールバーから音声をオンにできます。</p>
+    </div>
+  </section>
+
+  <!-- 【3】關於大溪 -->
+  <section class="block" id="about">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:16px">About Daxi · 關於大溪</span>
+        <p class="about-lead zh">大溪不只是老街。河流、木藝、祭典與人情味，共同塑造了這座城市的溫度。</p>
+        <p class="about-lead ja">大溪は単なる観光地ではありません。河川、木工、祭礼、そして人々の暮らしが織りなす文化の町です。</p>
+      </div>
+      <div class="about-art reveal">
+        <img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg" alt="大溪老街 / 大溪の老街">
+      </div>
+    </div>
+  </section>
+
+  <!-- 【4】六大文化主題 -->
+  <section class="block tint" id="fest">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Culture Themes · 文化主題</span>
+        <h2 class="sec-title zh">六大文化主題</h2>
+        <h2 class="sec-title ja">六つの文化テーマ</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg" alt="老街建築"></div>
+          <div class="card-body"><span class="card-num">01</span><h3 class="zh">老街建築</h3><h3 class="ja">老街建築</h3><span class="en">Old Street Architecture</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/daxi-diary.jpg" alt="木藝文化"></div>
+          <div class="card-body"><span class="card-num">02</span><h3 class="zh">木藝文化</h3><h3 class="ja">木工文化</h3><span class="en">Woodcraft Culture</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/note-2.jpg" alt="大溪大禧"></div>
+          <div class="card-body"><span class="card-num">03</span><h3 class="zh">大溪大禧</h3><h3 class="ja">大溪大禧</h3><span class="en">Daxi Festival</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/daxi-house.jpg" alt="普濟堂"></div>
+          <div class="card-body"><span class="card-num">04</span><h3 class="zh">普濟堂</h3><h3 class="ja">普済堂</h3><span class="en">Puji Temple Culture</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/fongfeifei.jpg" alt="鳳飛飛故事館"></div>
+          <div class="card-body"><span class="card-num">05</span><h3 class="zh">鳳飛飛故事館</h3><h3 class="ja">鳳飛飛故事館</h3><span class="en">Fong Fei-fei Story House</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-img"><img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/laojie-lixing.jpg" alt="慢行散策"></div>
+          <div class="card-body"><span class="card-num">06</span><h3 class="zh">慢行散策</h3><h3 class="ja">まち歩き散策</h3><span class="en">Slow Walk Experience</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 【5】精選散策路線 -->
+  <section class="block" id="routes">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Selected Routes · 精選路線</span>
+        <h2 class="sec-title zh">精選散策路線</h2>
+        <h2 class="sec-title ja">おすすめ散策ルート</h2>
+      </div>
+      <div class="routes-grid">
+        <article class="route reveal">
+          <img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg" alt="ROUTE 01">
+          <div class="route-body"><span class="tag">ROUTE 01</span><h3 class="zh">老街 × 木藝 × 河岸</h3><h3 class="ja">老街 × 木工 × 河岸</h3></div>
+        </article>
+        <article class="route reveal">
+          <img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/note-3.jpg" alt="ROUTE 02">
+          <div class="route-body"><span class="tag">ROUTE 02</span><h3 class="zh">大禧 × 普濟堂 × 神將文化</h3><h3 class="ja">大禧 × 普済堂 × 神将文化</h3></div>
+        </article>
+        <article class="route reveal">
+          <img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/fongfeifei.jpg" alt="ROUTE 03">
+          <div class="route-body"><span class="tag">ROUTE 03</span><h3 class="zh">鳳飛飛 × 日常生活 × 市場文化</h3><h3 class="ja">鳳飛飛 × 日常 × 市場文化</h3></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 【6】地元職人 -->
+  <section class="artisan" id="artisan">
+    <div class="wrap reveal">
+      <span class="eyebrow">Local Artisans · 在地職人</span>
+      <p class="artisan-lead zh">職人的雙手，守護著大溪的文化記憶。</p>
+      <p class="artisan-lead ja">職人の手が、大溪の文化記憶を守り続けています。</p>
+    </div>
+  </section>
+
+  <!-- 【7】案內人 Guide -->
+  <section class="block tint" id="guide">
+    <div class="wrap guide-grid">
+      <div class="guide-portrait reveal">
+        <img loading="lazy" src="https://ranaipan.github.io/daxi-tour/img/guide-portrait.jpg" alt="Ran Ai 大溪文化導覽員 / 大溪文化ガイド">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Your Guide · 案內人</span>
+        <p class="guide-name">Ran Ai</p>
+        <p class="guide-role zh">大溪文化導覽員</p>
+        <p class="guide-role ja">大溪文化ガイド</p>
+        <p class="guide-quote zh">用腳走讀大溪，用故事連結文化。</p>
+        <p class="guide-quote ja">足で大溪を歩き、物語で文化をつなぐ。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 【8】台日文化交流 -->
+  <section class="block exchange" id="exchange">
+    <div class="wrap reveal">
+      <div class="globe">⟡</div>
+      <span class="eyebrow" style="display:block;margin-bottom:14px">Taiwan × Japan · 台日文化交流</span>
+      <p class="exchange-lead zh">從大溪出發，與世界分享地方文化。</p>
+      <p class="exchange-lead ja">大溪から世界へ。地域文化の魅力を伝える。</p>
+    </div>
+  </section>
+
+  <!-- 【9】資料來源與研究方法 -->
+  <section class="block tint" id="train">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Sources &amp; Method · 資料來源</span>
+        <h2 class="sec-title zh">資料來源與研究方法</h2>
+        <h2 class="sec-title ja">資料出典と研究方法</h2>
+      </div>
+      <div class="sources-box reveal">
+        <p class="lead zh">資料來源</p>
+        <p class="lead ja">出典</p>
+        <div class="source-list zh">
+          <span>桃園市立大溪木藝生態博物館</span><span>普濟堂</span><span>大溪大禧</span><span>鳳飛飛故事館</span><span>實地踏查紀錄</span><span>職人訪談</span><span>參考文獻</span>
+        </div>
+        <div class="source-list ja">
+          <span>桃園市立大溪木芸生態博物館</span><span>普済堂</span><span>大溪大禧</span><span>鳳飛飛故事館</span><span>現地調査記録</span><span>職人インタビュー</span><span>参考文献</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 【10】CTA -->
+  <section class="block cta" id="cta">
+    <div class="wrap reveal">
+      <h2 class="sec-title zh">開始規劃你的大溪走讀</h2>
+      <h2 class="sec-title ja">大溪散策を計画する</h2>
+      <p class="cta-sub zh">選一條路線，讓我們陪你慢慢走讀大溪。</p>
+      <p class="cta-sub ja">ルートを選んで、一緒に大溪をゆっくり歩きましょう。</p>
+      <div class="cta-btns">
+        <a class="btn btn-solid" href="mailto:ainaca9319@gmail.com?subject=大溪路線諮詢"><span class="zh">路線諮詢</span><span class="ja">ルート相談</span></a>
+        <a class="btn btn-ghost" href="mailto:ainaca9319@gmail.com?subject=大溪導覽諮詢"><span class="zh">導覽諮詢</span><span class="ja">ガイド相談</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 【11】Footer -->
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-lead zh">參考館所資訊</p>
+    <p class="foot-lead ja">参考施設情報</p>
+    <p class="place">桃園市立大溪木藝生態博物館</p>
+    <p class="copy">DAXI WARMTH GUIDE © 2026 Ran Ai</p>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var root=document.documentElement;
+  var btns=document.querySelectorAll('.langswitch button');
+  function setLang(l){
+    if(l!=='ja')l='zh';
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l==='ja'?'ja':'zh-Hant');
+    btns.forEach(function(b){var on=b.getAttribute('data-lang')===l;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on);});
+    try{localStorage.setItem('daxi_lang',l);}catch(e){}
+  }
+  window.setLang=setLang;
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
+  var saved=null;try{saved=localStorage.getItem('daxi_lang');}catch(e){}
+  setLang(saved==='ja'?'ja':'zh');
+
+  var nav=document.querySelector('.nav'),tog=document.querySelector('.nav-toggle');
+  tog.addEventListener('click',function(){var open=nav.classList.toggle('open');tog.setAttribute('aria-expanded',open);});
+  document.querySelectorAll('.navlinks a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');tog.setAttribute('aria-expanded','false');});});
+
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>40);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
