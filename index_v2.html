@@ -8972,6 +8972,29 @@ footer{background:var(--paper-deep);border-top:1px solid var(--line);padding:64p
 }
 @keyframes lv2pulse{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.07);opacity:1}}
 </style>
+<style id="lv2-cookie-style">
+#lv2-cookie{position:fixed;left:0;right:0;bottom:0;z-index:9000;
+  background:rgba(244,241,233,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-top:1px solid #c9c3b3;box-shadow:0 -8px 30px -16px rgba(40,52,40,.4);
+  padding:18px clamp(16px,4vw,42px);
+  font-family:"Noto Sans TC",-apple-system,BlinkMacSystemFont,sans-serif;
+  transition:transform .42s ease,opacity .42s ease;opacity:1}
+#lv2-cookie.lv2-ck-hide{transform:translateY(115%);opacity:0;pointer-events:none}
+#lv2-cookie .lv2-ck-wrap{max-width:1040px;margin:0 auto;position:relative;padding-right:42px}
+#lv2-cookie .lv2-ck-title{font-family:"Noto Serif TC",serif;font-weight:600;font-size:16px;
+  color:#2c312a;letter-spacing:.05em;margin-bottom:7px}
+#lv2-cookie .lv2-ck-text{font-size:13.5px;line-height:1.8;color:#5f655a;font-weight:300;letter-spacing:.02em}
+#lv2-cookie .lv2-ck-x{position:absolute;top:-6px;right:-4px;width:32px;height:32px;border:0;cursor:pointer;
+  background:transparent;color:#7f8c77;font-size:21px;line-height:1;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:.2s;-webkit-tap-highlight-color:transparent}
+#lv2-cookie .lv2-ck-x:hover{background:rgba(127,140,119,.16);color:#2c312a}
+@media(max-width:600px){
+  #lv2-cookie{padding:14px 15px}
+  #lv2-cookie .lv2-ck-wrap{padding-right:34px}
+  #lv2-cookie .lv2-ck-title{font-size:15px}
+  #lv2-cookie .lv2-ck-text{font-size:12.5px;line-height:1.75}
+}
+</style>
 </head>
 <body><div id="lv2-loader" aria-hidden="true"><div class="lv2-seal">溪</div><div class="lv2-t">大溪生活溫度</div><div class="lv2-s">DAXI · WARMTH GUIDE</div></div>
 
@@ -9398,6 +9421,28 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   if(document.readyState!=='loading')init();
   else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+<div id="lv2-cookie" role="region" aria-label="Cookie 通知">
+  <div class="lv2-ck-wrap">
+    <button class="lv2-ck-x" type="button" aria-label="關閉 cookie 通知">✕</button>
+    <div class="lv2-ck-title">本網站使用 cookies</div>
+    <div class="lv2-ck-text">為提供您更多優質的內容，本網站使用 cookies 分析技術。若繼續閱覽本網站內容，即表示您同意我們使用 cookies，關於更多 cookies 以及相關政策更新資訊，請閱讀我們的隱私權政策與使用條款。</div>
+  </div>
+</div>
+<script id="lv2-cookie-js">
+(function(){
+  var KEY='daxi_cookie_consent';
+  var bar=document.getElementById('lv2-cookie');
+  if(!bar)return;
+  var done=false;try{done=localStorage.getItem(KEY)==='1';}catch(e){}
+  if(done){bar.parentNode&&bar.parentNode.removeChild(bar);return;}
+  var x=bar.querySelector('.lv2-ck-x');
+  x.addEventListener('click',function(){
+    try{localStorage.setItem(KEY,'1');}catch(e){}
+    bar.classList.add('lv2-ck-hide');
+    setTimeout(function(){bar.parentNode&&bar.parentNode.removeChild(bar);},460);
+  });
 })();
 </script>
 </body></html>
