@@ -8995,6 +8995,19 @@ footer{background:var(--paper-deep);border-top:1px solid var(--line);padding:64p
   #lv2-cookie .lv2-ck-text{font-size:12.5px;line-height:1.75}
 }
 </style>
+<style id="lv2-hero-fix">
+/* Mobile: hero title auto-shrinks so it never exceeds the screen width */
+@media(max-width:640px){
+  #artisan,#routes,#guide,#fest,#train,#cta{scroll-margin-top:90px}
+  .hero h1,.hero-brush{
+    font-size:clamp(30px,10vw,48px) !important;
+    line-height:1.12 !important;
+    letter-spacing:.02em !important;
+    max-width:100% !important;
+    overflow-wrap:anywhere;word-break:break-word;
+  }
+}
+</style>
 </head>
 <body><div id="lv2-loader" aria-hidden="true"><div class="lv2-seal">溪</div><div class="lv2-t">大溪生活溫度</div><div class="lv2-s">DAXI · WARMTH GUIDE</div></div>
 
@@ -9442,6 +9455,32 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     try{localStorage.setItem(KEY,'1');}catch(e){}
     bar.classList.add('lv2-ck-hide');
     setTimeout(function(){bar.parentNode&&bar.parentNode.removeChild(bar);},460);
+  });
+})();
+</script>
+<script id="lv2-navscroll-js">
+(function(){
+  var nav=document.querySelector('.nav');
+  function closeMenu(){
+    if(!nav)return;
+    nav.classList.remove('lv2-open');
+    var b=nav.querySelector('.lv2-burger');
+    if(b)b.setAttribute('aria-expanded','false');
+  }
+  var links=document.querySelectorAll('.navlinks a');
+  links.forEach(function(a){
+    var href=a.getAttribute('href')||'';
+    var hi=href.indexOf('#');
+    var hash=hi>=0?href.slice(hi):'';
+    a.addEventListener('click',function(e){
+      var target=(hash&&hash.length>1)?document.querySelector(hash):null;
+      if(target){
+        e.preventDefault();
+        if(location.hash===hash){location.hash="";}
+        location.hash=hash;            /* native same-page anchor scroll (respects scroll-margin-top) */
+      }
+      closeMenu();
+    });
   });
 })();
 </script>
