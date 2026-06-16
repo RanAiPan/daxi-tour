@@ -8920,8 +8920,60 @@ footer{background:var(--paper-deep);border-top:1px solid var(--line);padding:64p
   box-shadow:0px 2px 4px rgba(0,0,0,0.2) !important;
 }
 </style>
+<style id="lv2-mobile-fixes">
+/* ===== (1) Mobile hamburger menu (added) ===== */
+.lv2-burger{display:none}
+@media(max-width:980px){
+  .lv2-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:48px;height:42px;padding:0 11px;border:1px solid rgba(127,140,119,.55);border-radius:9px;
+    background:rgba(247,246,240,.94);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    cursor:pointer;position:relative;z-index:1003;-webkit-tap-highlight-color:transparent;flex:0 0 auto}
+  .lv2-burger span{display:block;height:2.5px;width:100%;border-radius:2px;background:#56624f;transition:.3s}
+  .nav.lv2-open .lv2-burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .nav.lv2-open .lv2-burger span:nth-child(2){opacity:0}
+  .nav.lv2-open .lv2-burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .nav{flex-wrap:wrap;row-gap:0}
+  /* turn the hidden navlinks into a slide-down popup */
+  .nav .navlinks{display:flex !important;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(248,247,241,.99);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid rgba(127,140,119,.3);box-shadow:0 20px 34px -16px rgba(40,52,40,.45);
+    padding:4px 0;max-height:0;overflow:hidden;visibility:hidden;opacity:0;
+    transition:max-height .36s ease,opacity .26s ease,visibility .26s}
+  .nav.lv2-open .navlinks{max-height:85vh !important;overflow:auto;visibility:visible !important;opacity:1 !important}
+  .nav .navlinks a{display:block;padding:16px 26px;font-size:16px;line-height:1.3;
+    color:#363b33 !important;text-shadow:none !important;letter-spacing:.05em;white-space:nowrap;
+    border-bottom:1px solid rgba(127,140,119,.16)}
+  .nav .navlinks a:last-child{border-bottom:0}
+  .nav .navlinks a.navcta{margin:10px 22px 8px;padding:14px;border-radius:7px;text-align:center;
+    background:#56624f;color:#fff !important;box-shadow:none !important}
+}
+
+/* ===== (2) Guide (走讀人) section — single column on phones (added) ===== */
+@media(max-width:860px){
+  .guide-grid{grid-template-columns:1fr !important;gap:30px}
+  .guide-portrait{width:100%;max-width:none;margin:0}
+  .guide-portrait img{width:100%}
+  .guide-portrait::after{left:10px;bottom:12px}
+}
+
+/* ===== (3) Loading splash — mobile only, fades within 1.5s (added) ===== */
+#lv2-loader{display:none}
+@media(max-width:860px){
+  #lv2-loader{display:flex;position:fixed;inset:0;z-index:100000;
+    flex-direction:column;align-items:center;justify-content:center;gap:20px;
+    background:#e7eae1;opacity:1;transition:opacity .6s ease}
+  #lv2-loader.lv2-hide{opacity:0;pointer-events:none}
+  #lv2-loader .lv2-seal{width:84px;height:84px;border-radius:50%;background:#7f8c77;color:#f2efe6;
+    display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-size:44px;
+    box-shadow:0 14px 34px rgba(86,98,79,.32);animation:lv2pulse 1.3s ease-in-out infinite}
+  #lv2-loader .lv2-t{font-family:"Noto Serif TC",serif;font-size:23px;letter-spacing:.14em;color:#2c312a}
+  #lv2-loader .lv2-s{font-size:11px;letter-spacing:.34em;color:#7f8c77}
+}
+@keyframes lv2pulse{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.07);opacity:1}}
+</style>
 </head>
-<body>
+<body><div id="lv2-loader" aria-hidden="true"><div class="lv2-seal">溪</div><div class="lv2-t">大溪生活溫度</div><div class="lv2-s">DAXI · WARMTH GUIDE</div></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -9322,4 +9374,30 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 
 
-<div class="page-lanterns" aria-hidden="true"><div class="lantern" style="top:9%;right:5%;width:44px;opacity:.42;--d:19s"><svg viewBox="0 0 56 104" aria-hidden="true"><path d="M28 5 q-9 6 0 14" fill="none" stroke="#7a5e36" stroke-width="2.2" stroke-linecap="round"></path><circle cx="28" cy="5" r="3" fill="none" stroke="#7a5e36" stroke-width="2"></circle><rect x="25" y="15" width="6" height="6" rx="1" fill="#8a6a3a"></rect><path d="M14 31 L28 19 L42 31 Z" fill="#9a7842"></path><path d="M16 33 L40 33 L44 84 L12 84 Z" fill="#d9a441" fill-opacity="0.5" stroke="#8a6a3a" stroke-width="2.2"></path><ellipse cx="28" cy="58" rx="9" ry="18" fill="#f0c66a" fill-opacity="0.45"></ellipse><line x1="28" y1="33" x2="28" y2="84" stroke="#8a6a3a" stroke-width="1.3" opacity="0.6"></line><path d="M12 84 L44 84 L40 90 L16 90 Z" fill="#9a7842"></path><circle cx="28" cy="95" r="3.4" fill="#8a6a3a"></circle></svg></div><div class="lantern" style="top:78%;left:5%;width:46px;opacity:.4;--d:22s;animation-delay:-7s"><svg viewBox="0 0 56 104" aria-hidden="true"><path d="M28 5 q-9 6 0 14" fill="none" stroke="#7a5e36" stroke-width="2.2" stroke-linecap="round"></path><circle cx="28" cy="5" r="3" fill="none" stroke="#7a5e36" stroke-width="2"></circle><rect x="25" y="15" width="6" height="6" rx="1" fill="#8a6a3a"></rect><path d="M14 31 L28 19 L42 31 Z" fill="#9a7842"></path><path d="M16 33 L40 33 L44 84 L12 84 Z" fill="#d9a441" fill-opacity="0.5" stroke="#8a6a3a" stroke-width="2.2"></path><ellipse cx="28" cy="58" rx="9" ry="18" fill="#f0c66a" fill-opacity="0.45"></ellipse><line x1="28" y1="33" x2="28" y2="84" stroke="#8a6a3a" stroke-width="1.3" opacity="0.6"></line><path d="M12 84 L44 84 L40 90 L16 90 Z" fill="#9a7842"></path><circle cx="28" cy="95" r="3.4" fill="#8a6a3a"></circle></svg></div></div></body></html>
+<div class="page-lanterns" aria-hidden="true"><div class="lantern" style="top:9%;right:5%;width:44px;opacity:.42;--d:19s"><svg viewBox="0 0 56 104" aria-hidden="true"><path d="M28 5 q-9 6 0 14" fill="none" stroke="#7a5e36" stroke-width="2.2" stroke-linecap="round"></path><circle cx="28" cy="5" r="3" fill="none" stroke="#7a5e36" stroke-width="2"></circle><rect x="25" y="15" width="6" height="6" rx="1" fill="#8a6a3a"></rect><path d="M14 31 L28 19 L42 31 Z" fill="#9a7842"></path><path d="M16 33 L40 33 L44 84 L12 84 Z" fill="#d9a441" fill-opacity="0.5" stroke="#8a6a3a" stroke-width="2.2"></path><ellipse cx="28" cy="58" rx="9" ry="18" fill="#f0c66a" fill-opacity="0.45"></ellipse><line x1="28" y1="33" x2="28" y2="84" stroke="#8a6a3a" stroke-width="1.3" opacity="0.6"></line><path d="M12 84 L44 84 L40 90 L16 90 Z" fill="#9a7842"></path><circle cx="28" cy="95" r="3.4" fill="#8a6a3a"></circle></svg></div><div class="lantern" style="top:78%;left:5%;width:46px;opacity:.4;--d:22s;animation-delay:-7s"><svg viewBox="0 0 56 104" aria-hidden="true"><path d="M28 5 q-9 6 0 14" fill="none" stroke="#7a5e36" stroke-width="2.2" stroke-linecap="round"></path><circle cx="28" cy="5" r="3" fill="none" stroke="#7a5e36" stroke-width="2"></circle><rect x="25" y="15" width="6" height="6" rx="1" fill="#8a6a3a"></rect><path d="M14 31 L28 19 L42 31 Z" fill="#9a7842"></path><path d="M16 33 L40 33 L44 84 L12 84 Z" fill="#d9a441" fill-opacity="0.5" stroke="#8a6a3a" stroke-width="2.2"></path><ellipse cx="28" cy="58" rx="9" ry="18" fill="#f0c66a" fill-opacity="0.45"></ellipse><line x1="28" y1="33" x2="28" y2="84" stroke="#8a6a3a" stroke-width="1.3" opacity="0.6"></line><path d="M12 84 L44 84 L40 90 L16 90 Z" fill="#9a7842"></path><circle cx="28" cy="95" r="3.4" fill="#8a6a3a"></circle></svg></div></div><script id="lv2-mobile-js">
+(function(){
+  /* loading splash: smooth fade-out, fully gone within ~1.5s */
+  setTimeout(function(){var l=document.getElementById('lv2-loader');if(l)l.classList.add('lv2-hide');},900);
+  setTimeout(function(){var l=document.getElementById('lv2-loader');if(l)l.style.display='none';},1550);
+  /* hamburger menu */
+  function init(){
+    var nav=document.querySelector('.nav');
+    if(!nav||nav.querySelector('.lv2-burger'))return;
+    var b=document.createElement('button');
+    b.className='lv2-burger';b.type='button';
+    b.setAttribute('aria-label','選單 / メニュー');b.setAttribute('aria-expanded','false');
+    b.innerHTML='<span></span><span></span><span></span>';
+    b.addEventListener('click',function(e){e.stopPropagation();
+      var open=nav.classList.toggle('lv2-open');b.setAttribute('aria-expanded',open?'true':'false');});
+    nav.appendChild(b);
+    nav.querySelectorAll('.navlinks a').forEach(function(a){
+      a.addEventListener('click',function(){nav.classList.remove('lv2-open');b.setAttribute('aria-expanded','false');});});
+    document.addEventListener('click',function(e){
+      if(nav.classList.contains('lv2-open')&&!nav.contains(e.target)){
+        nav.classList.remove('lv2-open');b.setAttribute('aria-expanded','false');}});
+  }
+  if(document.readyState!=='loading')init();
+  else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body></html>
