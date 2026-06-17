@@ -1859,60 +1859,43 @@ footer{background:var(--paper-deep);border-top:1px solid var(--line);padding:64p
 /* 大溪每日一拍 */
 .daily-photo{background:var(--paper);border-top:1px solid var(--line);padding:clamp(64px,9vw,120px) 0}
 .daily-photo .sec-no{color:#A8B2A1} /* 大溪每日一拍：鼠尾草綠 kicker */
-.dp-lead-ja{display:block;margin-top:6px;font-size:13.5px;letter-spacing:.04em;color:var(--ink-soft)} /* 大溪每日一拍：日文副標 */
-/* 大溪每日一拍：卡片網格 — 桌機 3 欄 / 平板 2 欄 / 手機 1 欄 */
-.dp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,32px);margin-top:6px}
+.dp-lead-ja{display:block;margin-top:6px;font-size:13.5px;letter-spacing:.04em;color:#B7AA9A} /* 大溪每日一拍：日文副標（暖灰棕） */
+/* 大溪每日一拍：單欄置中容器，桌機最大寬度 960px */
+.dp-inner{max-width:960px;margin:0 auto;padding:0 24px}
 /* 大溪每日一拍：莫蘭迪風格卡片（圓角 16px、柔和陰影、充足留白） */
-.dp-card{display:flex;flex-direction:column;background:#F5F2EB;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(86,98,79,.10);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-.dp-card:hover{transform:translateY(-5px);box-shadow:0 20px 42px rgba(86,98,79,.16);border-color:#A8B2A1}
-.dp-thumb{aspect-ratio:4/3;background:var(--paper-deep);overflow:hidden}
-.dp-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.dp-card:hover .dp-thumb img{transform:scale(1.05)}
-.dp-body{padding:18px 20px 22px}
-.dp-cap{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.5;letter-spacing:.02em}
-.dp-date{font-family:"SF Mono",monospace;font-size:12px;letter-spacing:.14em;color:#B7AA9A;margin-top:9px} /* 大溪每日一拍：暖灰棕日期 */
-/* 大溪每日一拍：查看更多按鈕（沿用站內 .btn 基底，配色延續鼠尾草綠主視覺） */
-.dp-more{text-align:center;margin-top:clamp(40px,5vw,60px)}
+.dp-card{background:#F5F2EB;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 16px 44px rgba(86,98,79,.12)}
+/* 大溪每日一拍：16:9 圖片，超連結包覆＋滑鼠懸停輕微放大 */
+.dp-media{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--paper-deep)}
+.dp-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.dp-media:hover img,.dp-media:focus-visible img{transform:scale(1.05)}
+.dp-body{padding:clamp(24px,4vw,38px);text-align:center}
+/* 大溪每日一拍：CTA 按鈕（沿用站內 .btn 基底，配色延續鼠尾草綠主視覺） */
 .dp-btn{background:var(--wood-deep);color:var(--paper)}
 .dp-btn:hover{background:var(--wood);color:var(--paper);transform:translateY(-2px)}
-/* 大溪每日一拍：響應式 — 平板 2 欄 / 手機 1 欄 */
-@media(max-width:980px){.dp-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.dp-grid{grid-template-columns:1fr}}
+/* 大溪每日一拍：響應式 — 平板維持單欄；手機滿版顯示 */
+@media(max-width:600px){
+  .dp-inner{padding:0} /* 大溪每日一拍：手機滿版，移除左右留白 */
+  .daily-photo .sec-head{padding:0 20px} /* 大溪每日一拍：手機標題保留留白 */
+  .dp-card{border-radius:0;border-left:0;border-right:0}
+}
 </style>
 <section id="daily-photo" class="daily-photo">
-  <div class="wrap">
+  <div class="dp-inner">
     <div class="sec-head reveal"><div>
       <div class="sec-no">大溪日々の一枚</div>
       <h2 class="sec-title">大溪<em>每日一拍</em></h2>
     </div>
     <p class="sec-lead">用鏡頭記錄大溪的日常溫度<span class="dp-lead-ja">レンズで大溪の日常を記録する</span></p></div>
-    <div id="dp-grid" class="dp-grid reveal"></div>
-    <div class="dp-more reveal">
-      <a class="btn dp-btn" href="https://drive.google.com/drive/folders/1vXiecDG6zA1DnrQDQdGrkjrmTBkJtU3-" target="_blank" rel="noopener noreferrer">查看更多 →</a>
+    <div class="dp-card reveal">
+      <a class="dp-media" href="https://ramai-vibe.my.canva.site/daxivi" target="_blank" rel="noopener noreferrer" aria-label="前往大溪每日一拍（新分頁開啟）">
+        <img src="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg" alt="大溪老街午後的木造街屋與騎樓日常街景" loading="lazy">
+      </a>
+      <div class="dp-body">
+        <a class="btn dp-btn" href="https://ramai-vibe.my.canva.site/daxivi" target="_blank" rel="noopener noreferrer">前往每日一拍 / 毎日の一枚へ</a>
+      </div>
     </div>
   </div>
 </section>
-<script id="lv2-daily-photo-js">
-/* 大溪每日一拍 */
-(function(){
-  /* 圖片資料陣列（可擴充結構）：日後新增照片只要往陣列追加 {src, caption, date} 物件即可。
-     目前先使用 3 張範例圖片佔位，未寫死 Google Drive 圖片網址。
-     未來需透過 Google Drive API、Apps Script 或手動更新 JSON 才能自動顯示最新照片。 */
-  var dailyPhotos = [
-    { src: "https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg", caption: "和平老街的午後騎樓", date: "2024.06" },
-    { src: "https://ranaipan.github.io/daxi-tour/img/daxi-house.jpg",    caption: "百年老宅的光與影",   date: "2024.07" },
-    { src: "https://ranaipan.github.io/daxi-tour/img/laojie-lixing.jpg", caption: "李騰芳古宅一隅",     date: "2024.08" }
-  ];
-  var grid = document.getElementById('dp-grid');
-  if (!grid) { return; }
-  grid.innerHTML = dailyPhotos.map(function(p){
-    return '<figure class="dp-card">'
-         +   '<div class="dp-thumb"><img src="' + p.src + '" alt="大溪每日一拍：' + p.caption + '" loading="lazy"></div>'
-         +   '<figcaption class="dp-body"><div class="dp-cap">' + p.caption + '</div><div class="dp-date">' + p.date + '</div></figcaption>'
-         + '</figure>';
-  }).join('');
-})();
-</script>
 
 <section id="collection" class="collection">
   <div class="wrap">
