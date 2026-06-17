@@ -1854,6 +1854,49 @@ footer{background:var(--paper-deep);border-top:1px solid var(--line);padding:64p
 @media(max-width:680px){.keypts{columns:1}}
 </style>
 
+<!-- ===== 大溪每日一拍 ===== -->
+<style id="lv2-daily-photo">
+/* 大溪每日一拍 */
+.daily-photo{background:var(--paper);border-top:1px solid var(--line);padding:clamp(64px,9vw,120px) 0}
+.daily-photo .sec-no{color:#A8B2A1} /* 大溪每日一拍：鼠尾草綠 kicker */
+.dp-lead-ja{display:block;margin-top:6px;font-size:13.5px;letter-spacing:.04em;color:#B7AA9A} /* 大溪每日一拍：日文副標（暖灰棕） */
+/* 大溪每日一拍：單欄置中容器，桌機最大寬度 960px */
+.dp-inner{max-width:960px;margin:0 auto;padding:0 24px}
+/* 大溪每日一拍：莫蘭迪風格卡片（圓角 16px、柔和陰影、充足留白） */
+.dp-card{background:#F5F2EB;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 16px 44px rgba(86,98,79,.12)}
+/* 大溪每日一拍：16:9 圖片，超連結包覆＋滑鼠懸停輕微放大 */
+.dp-media{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--paper-deep)}
+.dp-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.dp-media:hover img,.dp-media:focus-visible img{transform:scale(1.05)}
+.dp-body{padding:clamp(24px,4vw,38px);text-align:center}
+/* 大溪每日一拍：CTA 按鈕（沿用站內 .btn 基底，配色延續鼠尾草綠主視覺） */
+.dp-btn{background:var(--wood-deep);color:var(--paper)}
+.dp-btn:hover{background:var(--wood);color:var(--paper);transform:translateY(-2px)}
+/* 大溪每日一拍：響應式 — 平板維持單欄；手機滿版顯示 */
+@media(max-width:600px){
+  .dp-inner{padding:0} /* 大溪每日一拍：手機滿版，移除左右留白 */
+  .daily-photo .sec-head{padding:0 20px} /* 大溪每日一拍：手機標題保留留白 */
+  .dp-card{border-radius:0;border-left:0;border-right:0}
+}
+</style>
+<section id="daily-photo" class="daily-photo">
+  <div class="dp-inner">
+    <div class="sec-head reveal"><div>
+      <div class="sec-no">大溪日々の一枚</div>
+      <h2 class="sec-title">大溪<em>每日一拍</em></h2>
+    </div>
+    <p class="sec-lead">用鏡頭記錄大溪的日常溫度<span class="dp-lead-ja">レンズで大溪の日常を記録する</span></p></div>
+    <div class="dp-card reveal">
+      <a class="dp-media" href="https://ramai-vibe.my.canva.site/daxivi" target="_blank" rel="noopener noreferrer" aria-label="前往大溪每日一拍（新分頁開啟）">
+        <img src="https://ranaipan.github.io/daxi-tour/img/laojie-street.jpg" alt="大溪老街午後的木造街屋與騎樓日常街景" loading="lazy">
+      </a>
+      <div class="dp-body">
+        <a class="btn dp-btn" href="https://ramai-vibe.my.canva.site/daxivi" target="_blank" rel="noopener noreferrer">前往每日一拍 / 毎日の一枚へ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="collection" class="collection">
   <div class="wrap">
     <div class="sec-head reveal"><div>
