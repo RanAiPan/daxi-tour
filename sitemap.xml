@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ranaipan.github.io/daxi-tour/</loc>
-    <lastmod>2026-06-20</lastmod>
-  </url>
-  <url>
-    <loc>https://ranaipan.github.io/daxi-tour/ja/</loc>
-    <lastmod>2026-06-20</lastmod>
-  </url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/ja/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/litengfang/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/tanghe/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/daiyi/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/hefeng/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/longda/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/pujitang/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/daxidaxi/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/laojie-route/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/artisan-route/</loc><lastmod>2026-06-20</lastmod></url>
+  <url><loc>https://ranaipan.github.io/daxi-tour/slow-route/</loc><lastmod>2026-06-20</lastmod></url>
 </urlset>
